@@ -1,0 +1,299 @@
+<title>Simp</title>
+<style type="text/css">
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background-color: #01001e;
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  color: #fff;
+  font-size: 1rem;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Library3am-5V3Z";
+}
+
+.jam,
+.teks {
+  text-align: center;
+  font-size: 6rem;
+  font-family: fantasy ;
+  font-weight: 700;
+  margin: 3rem 0;
+}
+
+/* 
+            @ Glitch Effect : https://css-tricks.com/glitch-effect-text-images-svg/
+        */
+
+.glitch {
+  color: white;
+  font-size: inherit;
+  position: relative;
+  width: 500px;
+  margin: 0 auto;
+}
+
+@keyframes noise-anim {
+  0% {
+    clip: rect(22px, 9999px, 26px, 0);
+  }
+
+  25% {
+    clip: rect(2px, 9999px, 30px, 0);
+  }
+
+  50% {
+    clip: rect(73px, 9999px, 63px, 0);
+  }
+
+  75% {
+    clip: rect(32px, 9999px, 92px, 0);
+  }
+
+  95% {
+    clip: rect(98px, 9999px, 8px, 0);
+  }
+
+  100% {
+    clip: rect(97px, 9999px, 93px, 0);
+  }
+}
+
+.glitch:after {
+  content: attr(data-teks);
+  position: absolute;
+  left: 2px;
+  text-shadow: -1px 0 red;
+  top: 0;
+  color: white;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes noise-anim-2 {
+  0% {
+    clip: rect(86px, 9999px, 16px, 0);
+  }
+
+  5% {
+    clip: rect(81px, 9999px, 63px, 0);
+  }
+
+  10% {
+    clip: rect(77px, 9999px, 39px, 0);
+  }
+
+  15% {
+    clip: rect(54px, 9999px, 64px, 0);
+  }
+
+  20% {
+    clip: rect(21px, 9999px, 39px, 0);
+  }
+
+  25% {
+    clip: rect(24px, 9999px, 10px, 0);
+  }
+
+  30% {
+    clip: rect(86px, 9999px, 42px, 0);
+  }
+
+  35% {
+    clip: rect(17px, 9999px, 45px, 0);
+  }
+
+  40% {
+    clip: rect(88px, 9999px, 46px, 0);
+  }
+
+  45% {
+    clip: rect(54px, 9999px, 2px, 0);
+  }
+
+  50% {
+    clip: rect(3px, 9999px, 46px, 0);
+  }
+
+  55% {
+    clip: rect(23px, 9999px, 52px, 0);
+  }
+
+  60% {
+    clip: rect(92px, 9999px, 22px, 0);
+  }
+
+  65% {
+    clip: rect(75px, 9999px, 68px, 0);
+  }
+
+  70% {
+    clip: rect(79px, 9999px, 81px, 0);
+  }
+
+  75% {
+    clip: rect(24px, 9999px, 71px, 0);
+  }
+
+  80% {
+    clip: rect(9px, 9999px, 95px, 0);
+  }
+
+  85% {
+    clip: rect(55px, 9999px, 30px, 0);
+  }
+
+  90% {
+    clip: rect(85px, 9999px, 10px, 0);
+  }
+
+  95% {
+    clip: rect(91px, 9999px, 44px, 0);
+  }
+
+  100% {
+    clip: rect(2px, 9999px, 46px, 0);
+  }
+}
+
+.glitch:before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 1px 0 blue;
+  top: 0;
+  color: white;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim-2 3s infinite linear alternate-reverse;
+}
+
+#bg {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+@media only screen and (max-width: 767px) {
+  .jam,
+  .teks {
+    font-size: 3rem;
+  }
+}
+
+</style>
+<canvas id="bg"></canvas>
+<audio src="Sub urban.mp3" autoplay></audio>
+<main>
+        <script type="text/javascript">"use strict";
+
+            document.addEventListener("DOMContentLoaded", () => {
+              let jam = document.getElementById("jam"),
+                menit = document.getElementById("menit"),
+                detik = document.getElementById("detik"),
+                canvas = document.getElementById("bg"),
+                loveemoji = [
+                "💞",
+                "💕",
+                "💓",
+                "💗",
+                "💖",
+                "💘",
+                "💝",
+                "💛",
+                "💚",
+                "💙",
+                "💜",
+                "🖤"
+                ];
+            
+              let waktu = new Date();
+            
+              jam.innerHTML = waktu.getHours();
+              menit.innerHTML = waktu.getMinutes();
+              detik.innerHTML = waktu.getSeconds();
+            
+              setInterval(() => {
+                let waktu = new Date();
+            
+                jam.innerHTML = waktu.getHours();
+                menit.innerHTML = waktu.getMinutes();
+                detik.innerHTML = waktu.getSeconds();
+              }, 1000);
+            
+              canvas.height = innerHeight;
+              canvas.width = innerWidth;
+              let ctx = canvas.getContext("2d");
+            
+              class Love {
+                constructor() {
+                  this.reset();
+                }
+                reset() {
+                  this.size = Math.floor(Math.random() * 150 + 75);
+                  this.x = Math.floor(
+                    Math.random() * (canvas.width - this.size) + this.size
+                  );
+                  this.y = canvas.height + this.size;
+                  this.speed = Math.floor(Math.random() * 5 + 2);
+                  this.emoji = loveemoji[Math.floor(Math.random() * loveemoji.length)];
+                }
+                draw() {
+                  ctx.globalAlpha = 0.8;
+                  ctx.font = this.size + "px serif";
+                  ctx.textAlign = "center";
+                  ctx.textBaseline = "middle";
+                  ctx.fillText(this.emoji, this.x, this.y);
+                }
+                update() {
+                  if (this.y < -this.size) {
+                    this.reset();
+                  } else {
+                    this.y = this.y - this.speed;
+                  }
+                  this.draw();
+                }
+              }
+            
+              let arrLove = [];
+            
+              for (let i = 0; i < 100; i++) {
+                arrLove.push(new Love());
+              }
+            
+              function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, innerWidth, innerWidth);
+            
+                arrLove.forEach((love) => {
+                  love.update();
+                });
+              }
+              animate();
+            });
+            </script>
+  <section>
+    <section class="jam"><span id="jam">00</span>:<span id="menit">00</span>:<span id="detik">00</span>
+    </section>
+    <section class="teks"><span class="glitch" data-teks="Chindi jjsjfhsjfhsjsj">Good Night</span></section>
+  </section>
+</main>
