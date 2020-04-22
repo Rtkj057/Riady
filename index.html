@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>Web Beta</title>
+        <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background: #EDEDED;
+            transition: 0.5s;
+        }
+        body.night{
+            background: #00151f;
+        }
+        header{
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 0 100px;
+            background: #fe7a15;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        header .logo{
+            color: #fff;
+            height: 50px;
+            line-height: 50px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 25px;
+            float: left;
+            font-weight: 400;
+        }
+        header nav{
+            float: right;
+        }
+        header nav ul{
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        header nav ul li{
+            list-style: none;
+            position: relative;
+        }
+        header nav ul li.sub-menu:before{
+            content: '▼';
+            font-size: 13px;
+            font-family: sans-serif;
+            position: absolute;
+            line-height: 50px;
+            color: #fff;
+            right: 2px;
+        }
+        header nav ul li.active.sub-menu:before{
+            transition: 5s;
+            content: '▲';
+        }
+        header nav ul li ul{
+            position: absolute;
+            left: 0;
+            background: #333;
+            display: none;
+        }
+        header nav ul li.active ul{
+            display: block;
+        }
+        header nav ul li ul li{
+            display: block;
+            width: 200px;
+        }
+        header nav ul li a{
+            height: 50px;
+            line-height: 50px;
+            padding: 0 20px;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+        header nav ul li a:hover,
+        header nav ul li a.active{
+            color: #fff;
+            background: #2196f3;
+        }
+        .menu-toggle{
+            color: #fff;
+            float: right;
+            line-height: 50px;
+            font-size: 35px;
+            cursor: pointer;
+            display: none;
+        }
+        .toggle{
+            position: absolute;
+            top: 60px;
+            right: 25px;
+            background: #EDEDED;
+            border: 2px solid #00151f;
+            height: 20px;
+            width: 45px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: 0.5s;
+        }
+        .toggle:before{
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            background: #00151f;
+            border-radius: 50%;
+            transition: 0.5s;
+        }
+        .toggle.active:before{
+            left: 27px;
+            background: #fff;
+        }
+        .toggle.active{
+            background: #00151f;
+            border: 2px solid #fff;
+        }
+        .content{
+            margin: 100px auto;
+            width: 1000px;
+            position: relative;
+            transition: 0.5s;
+        }
+        body.night .content{
+            color: #fff;
+        }
+        @media (max-width: 991px)
+        {
+            header
+            {   
+                padding: 0 15px;
+            }
+            .menu-toggle
+            {
+                display: block;
+            }
+            header nav
+            {
+                position: absolute;
+                width: 100%;
+                height: calc(100vh - 50px);
+                background: #333;
+                top: 50px;
+                left: -100%;
+                transition: 0.5s;
+            }
+            .toggle
+            {
+                position: absolute;
+                top: 60px;
+                right: 5px;
+                background: #EDEDED;
+                border: 2px solid #00151f;
+                height: 15px;
+                width: 35px;
+                cursor: pointer;
+                border-radius: 20px;
+                transition: 0.5s;
+            }
+            .toggle:before{
+                content: '';
+                position: absolute;
+                top: 1px;
+                left: 2px;
+                width: 13px;
+                height: 13px;
+                background: #00151f;
+                border-radius: 50%;
+                transition: 0.5s;
+            }
+            .toggle.active:before{
+                left: 20px;
+            }
+            header nav.active
+            {
+                left: 0px;
+            }
+            header nav ul
+            {
+                display: block;
+                text-align: center;
+            }
+            header nav ul li a
+            {
+                border-bottom: 1px solid rgba(0,0,0.2);
+            }
+            header nav ul li.active ul
+            {
+                position: relative;
+                background: #003e6f;
+            }
+            header nav ul li ul li
+            {
+                width: 100%;
+            }
+            .content
+            {
+                margin: 100px auto;
+                width: 300px;
+                position: relative;
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <h2>The Ronin</h2>
+            <p>Matahari yang mulai tenggelam membuat perairan di sekeliling 
+               kepulauan Jepang me-merah. Di barat daya, di jalan dekat Laut Peda-laman, seorang laki-laki tinggi menunggang kuda yang tidak terawat. Dia melindungi mata dari sinar matahari sambil berkuda melewati hutan pinus.</p>
+            <p>Namanya Oishi Kuranosuke Yoshitaka; kepala samurai Klan Asano. Dia dalam perjalanan kembali ke kastil di Ako setelah berkeliling kota bersama putri majikannya yang menunggang kuda poni di sebelahnya. Surai kuda poni itu dibiarkan panjang tanpa dipotong. </p>
+            <p>Mereka merupakan pasangan yang aneh. Oishi adalah laki-laki tampan berumur empat puluhan dengan dahi menonjol, rahang persegi, dan sikap yang tenang berwibawa. Rambut, sarung hakama  serta dua bilah pedang menunjukkan bahwa dia samurai, klas ksatria. Sedangkan anak itu mungil dan periang, bercahaya laksana kupu-kupu dalam balutan kimono dan obi. Keduanya tampak nyaman. Si gadis merasa terbebas dari disiplin ketat yang diterapkan orangtuanya; sedangkan Oishi merasa bebas bersama anak kecil, terutama anak orang lain, untuk melepas sikap resmi dan bahkan sedikit bercanda.</p>
+        </div>
+        <header>
+            <div class="logo">Second Test</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li class="sub-menu"><a href="#">Services</a>
+                        <ul>
+                            <li><a href="#">Link 1</a></li>
+                            <li><a href="#">Link 2</a></li>
+                            <li><a href="#">Link 3</a></li>
+                            <li><a href="#">Link 4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Portofolio</a></li>
+                    <li class="sub-menu"><a href="#">Team</a>
+                        <ul>
+                            <li><a href="#">Arya Oppai</a></li>
+                            <li><a href="#">Riadi Oppai</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="toggle"></div>
+            <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('.toggle').click(function(){
+                        $('.toggle').toggleClass('active')
+                        $('body').toggleClass('night')
+                    })
+                })
+            </script>
+            <div class="menu-toggle">≡</div>
+        </header>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.menu-toggle').click(function(){
+                    $('nav').toggleClass('active')
+                })
+                $('ul li').click(function(){
+                    $(this).siblings().removeClass('active');
+                    $(this).toggleClass('active');
+                })
+            })
+        </script>
+    </body>
+</html>
